@@ -8,7 +8,7 @@
 		</div>
 	</td>
 	<td>
-		<a href=<? echo $_SERVER['REQUEST_URI'] . "project.php?id=" . $ProjectID ?>><h4><? echo $title ?></h4></a>
+		<a href=<? echo "project.php?id=" . $ProjectID ?>><h4><? echo $title ?></h4></a>
 		<p class="hidden-xs"><? echo $description ?></p>
 	</td> 
 	<td class="text-right">
