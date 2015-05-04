@@ -24,6 +24,10 @@
 	font-weight: 600;
 }
 
+.voted {
+	color: red;
+}
+
 .fa-thumbs-o-up .voted {
 	color: #C8102E;
 }

@@ -1,8 +1,10 @@
 <tr>
 	<td>
 		<div class="votebox">
-			<i class="fa fa-thumbs-o-up"></i>
-			<? echo $votes ?>
+			<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"])) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted -> num_rows > 0) echo 'class="voted"'; ?>>
+				<i class="fa fa-thumbs-o-up"></i>
+				<span class="votecount"><? echo $votes ?></span>
+			</a>
 		</div>
 	</td>
 	<td>

@@ -16,3 +16,21 @@ function logout() {
 	Cookies.remove("Username");
 	window.location = './index.php';
 }
+
+function vote(id) {
+	if (!$("#vote" + id).hasClass("voted")) {
+		$("#vote" + id).addClass("voted");
+		$("#vote" + id).children(".votecount").text(parseInt($("#vote" + id).children(".votecount").text()) + 1);
+	    var data = "ProjectID=" + id + "&UserID=" + Cookies.get("UserID");
+	    $.ajax({type:'POST', url: 'submit/vote.php', data:data, success: function(response) {
+	        $('body').append(response);
+	    }});
+	} else {
+		$("#vote" + id).removeClass("voted");
+		$("#vote" + id).children(".votecount").text(parseInt($("#vote" + id).children(".votecount").text()) - 1);
+	    var data = "ProjectID=" + id + "&UserID=" + Cookies.get("UserID");
+	    $.ajax({type:'POST', url: 'submit/unvote.php', data:data, success: function(response) {
+	        $('body').append(response);
+	    }});
+	}
+}

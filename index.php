@@ -21,7 +21,8 @@
 							$userquery = $mysqli->query("SELECT Username FROM User WHERE UserID = " . $UserID);
 							$user = $userquery->fetch_assoc()["Username"];
 							$title = $row["Name"];
-							$votes = 0;
+							$votes = $mysqli->query("SELECT COUNT(1) FROM `Vote` WHERE ProjectID = " . $ProjectID)->fetch_assoc()["COUNT(1)"];
+							$voted = $mysqli->query("SELECT 1 FROM `Vote` WHERE ProjectID = " . $ProjectID . " AND UserID = " . $_COOKIE["UserID"]);
 							$description = $row["Description"];
 							include("components/projectrow.php");
 						}
