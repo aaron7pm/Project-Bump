@@ -1,7 +1,7 @@
 <tr>
 	<td>
 		<div class="votebox">
-			<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"])) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted -> num_rows > 0) echo 'class="voted"'; ?>>
+			<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"])) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted !== null && $voted -> num_rows > 0) echo 'class="voted"'; ?>>
 				<i class="fa fa-thumbs-o-up"></i>
 				<span class="votecount"><? echo $votes ?></span>
 			</a>
@@ -9,7 +9,7 @@
 	</td>
 	<td>
 		<a href=<? echo "project.php?id=" . $ProjectID ?>><h4><? echo $title ?></h4></a>
-		<p class="hidden-xs"><? echo $description ?></p>
+		<p class="hidden-xs"><? echo substr($description, 0, 140) ?></p>
 	</td> 
 	<td class="text-right">
 		by<h4><? echo $user ?></h4>

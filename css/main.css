@@ -2,6 +2,14 @@
 	display: none;
 }
 
+.nomargin {
+	margin: 0 !important;
+}
+
+.padding {
+	padding: 0 !important;
+}
+
 .projects {
 	width: 100%;
 }
@@ -30,4 +38,13 @@
 
 .fa-thumbs-o-up .voted {
 	color: #C8102E;
+}
+
+.project .votebox {
+	font-size: 28px;
+}
+
+.headerImage {
+	max-height: 200px;
+	width: 100%;
 }

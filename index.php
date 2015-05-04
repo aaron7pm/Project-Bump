@@ -22,7 +22,10 @@
 							$user = $userquery->fetch_assoc()["Username"];
 							$title = $row["Name"];
 							$votes = $mysqli->query("SELECT COUNT(1) FROM `Vote` WHERE ProjectID = " . $ProjectID)->fetch_assoc()["COUNT(1)"];
-							$voted = $mysqli->query("SELECT 1 FROM `Vote` WHERE ProjectID = " . $ProjectID . " AND UserID = " . $_COOKIE["UserID"]);
+							$voted = null;
+							if (isset($_COOKIE["UserID"])){
+								$voted = $mysqli->query("SELECT 1 FROM `Vote` WHERE ProjectID = " . $ProjectID . " AND UserID = " . $_COOKIE["UserID"]);
+							} 
 							$description = $row["Description"];
 							include("components/projectrow.php");
 						}
