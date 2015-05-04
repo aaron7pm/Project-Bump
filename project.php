@@ -14,7 +14,7 @@
 	<? include_once("components/head.php") ?>
 	<body>
 		<? include_once("components/nav.php"); ?>
-		<div class="container project">
+		<div class="container project wrapper">
 			<? 	if ($project['Image'] !== NULL) {
 				echo
 					"<div class=\"row\">
@@ -23,7 +23,7 @@
 					</div>";
 				} 
 			?>
-			<div class="row">
+			<div class="row pdetail">
 				<div class="votebox col-xs-2 col-md-1">
 					<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"])) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted !== null && $voted -> num_rows > 0) echo 'class="voted"'; ?>>
 						<i class="fa fa-thumbs-o-up"></i>
