@@ -4,9 +4,7 @@
 	if(!isset($_COOKIE["UserID"])) echo "<script>window.location = './index.php';</script>";
 ?>
 <html>
-	<head>
-		<title><? echo $title; ?></title>
-	</head>
+	<? include_once("components/head.php") ?>
 	<body>
 		<? include_once("components/nav.php"); ?>
 		<div class="container">
