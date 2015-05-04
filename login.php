@@ -34,7 +34,7 @@
 		<script>
 			if (Cookies.get('UserID')) window.location = './index.php';
 			function submitForm() {
-			    $.ajax({type:'POST', url: 'lsubmit.php', data:$('#login').serialize(), success: function(response) {
+			    $.ajax({type:'POST', url: 'submit/lsubmit.php', data:$('#login').serialize(), success: function(response) {
 			        $('#login').find('.form_result').html(response);
 			    }});
 			    return false;

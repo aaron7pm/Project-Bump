@@ -40,10 +40,8 @@
 						<i class="fa fa-plus"></i>&nbsp; <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a id="profile" href="#">New Project</a></li>
-						<li><a href="#">New Collection</a></li>
-						<li class="divider"></li>
-						<li><a id="logout" href="#" onclick="logout()">Logout</a></li>
+						<li><a href="newproject.php">New Project</a></li>
+						<li><a href="newcollection.php">New Collection</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -40,7 +40,7 @@
 		<script>
 			if (Cookies.get('UserID')) window.location = './index.php';
 			function submitForm() {
-			    $.ajax({type:'POST', url: 'rsubmit.php', data:$('#register').serialize(), success: function(response) {
+			    $.ajax({type:'POST', url: 'submit/rsubmit.php', data:$('#register').serialize(), success: function(response) {
 			        $('#register').find('.form_result').html(response);
 			    }});
 			    return false;
