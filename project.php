@@ -14,7 +14,7 @@
 	<? include_once("components/head.php") ?>
 	<body>
 		<? include_once("components/nav.php"); ?>
-		<div class="container project wrapper">
+		<div class="container project rowwrapper">
 			<? 	if ($project['Image'] !== NULL) {
 				echo
 					"<div class=\"row\">

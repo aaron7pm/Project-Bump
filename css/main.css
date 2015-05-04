@@ -1,5 +1,10 @@
 a {
 	text-decoration: none !important;
+	color: #C8102E;
+}
+
+a:hover, a:active, a:focus{
+	color: #960C22;
 }
 
 .hidden {
@@ -38,13 +43,14 @@ a {
 	padding: 1rem 2rem;
 }
 
-.votebox {
+.votebox, .votebox a {
 	font-size: 24px;
 	font-weight: 600;
+	color: #54585A;
 }
 
-.voted {
-	color: red;
+.voted .fa {
+	color: #C8102E;
 }
 
 .fa-thumbs-o-up .voted {
