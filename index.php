@@ -13,12 +13,15 @@
 				$dd->sub(new DateInterval('P0' . $d . 'D'));
 			?>
 			<h2><? echo ($d == 0) ? "Today" : $dd->format('l'); ?></h2>
-			<table class="table">
+			<table class="projects">
 				<?
 					$result = $mysqli->query("SELECT * FROM Project WHERE DATE(Date) = SUBDATE(CURRENT_DATE, " . $d . ")");
 					if ($result -> num_rows > 0) {
 						while ($row = $result->fetch_assoc()){
 							$ProjectID = $row["ProjectID"];
+							$UserID = $row["UserID"];
+							$userquery = $mysqli->query("SELECT Username FROM User WHERE UserID = " . $UserID);
+							$user = $userquery->fetch_assoc()["Username"];
 							$title = $row["Name"];
 							$votes = 0;
 							$description = $row["Description"];

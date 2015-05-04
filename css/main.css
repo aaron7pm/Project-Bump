@@ -1,0 +1,29 @@
+.hidden {
+	display: none;
+}
+
+.projects {
+	width: 100%;
+}
+
+.projects>tbody>tr {
+	border-top: 1px #eee solid;
+}
+
+.projects>tbody>tr>td,
+.projects>tbody>tr>th,
+.projects>tfoot>tr>td,
+.projects>tfoot>tr>th,
+.projects>thead>tr>td,
+.projects>thead>tr>th {
+	padding: 1rem 2rem;
+}
+
+.votebox {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.fa-thumbs-o-up .voted {
+	color: #C8102E;
+}

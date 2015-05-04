@@ -20,16 +20,18 @@
 							placeholder="Search">
 					</div>
 				</form>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+				<li><a id="loginbtn" href="login.php" class="hidden">Login</a></li>
+				<li><a id="registerbtn" href="register.php" class="hidden">Register</a></li>
+				<li id="user" class="dropdown hidden">
+					<a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown"
 						role="button" aria-expanded="false">
 						My Account <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="#">My Profile</a></li>
+						<li><a id="profile" href="#">My Profile</a></li>
 						<li><a href="#">Settings</a></li>
 						<li class="divider"></li>
-						<li><a href="#">Logout</a></li>
+						<li><a id="logout" href="#" onclick="logout()">Logout</a></li>
 					</ul>
 				</li>
 				<li><a href="#"><i class="fa fa-plus"></i>&nbsp;</a></li>
