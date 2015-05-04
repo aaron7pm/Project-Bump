@@ -3,8 +3,7 @@
 
 if (Cookies.get('UserID')) {
 	$("#user").removeClass("hidden");
-	$("#registerbtn").addClass("hidden");
-	$("#loginbtn").addClass("hidden");
+	$("#add").removeClass("hidden");
 	$("#username").text(Cookies.get("Username"));
 	$("#profile").attr("href", "user.php?id=" + Cookies.get("UserID"));
 } else {

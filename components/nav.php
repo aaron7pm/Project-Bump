@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#"><i class="fa fa-hand-o-up"></i> Project Bump</a>
+			<a class="navbar-brand" href="index.php"><i class="fa fa-hand-o-up"></i> Project Bump</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -34,7 +34,18 @@
 						<li><a id="logout" href="#" onclick="logout()">Logout</a></li>
 					</ul>
 				</li>
-				<li><a href="#"><i class="fa fa-plus"></i>&nbsp;</a></li>
+				<li id="add" class="dropdown hidden">
+					<a id="username" href="#" class="dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-expanded="false">
+						<i class="fa fa-plus"></i>&nbsp; <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a id="profile" href="#">New Project</a></li>
+						<li><a href="#">New Collection</a></li>
+						<li class="divider"></li>
+						<li><a id="logout" href="#" onclick="logout()">Logout</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>
