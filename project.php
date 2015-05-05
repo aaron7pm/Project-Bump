@@ -17,7 +17,10 @@
 		<? include_once("components/nav.php"); ?>
 		<div class="container project">
 			<div class="dropdown">
-			    <button class="btn btn-default dropdown-toggle" type="button" id="addcollection" data-toggle="dropdown" aria-expanded="true">
+				<? $liu = null;
+			    	if (isset($_COOKIE["UserID"])) $liu = $_COOKIE["UserID"];
+			    ?>
+			    <button class="btn btn-default dropdown-toggle <? if ($project["UserID"] !== $liu) echo  'hidden' ?>" type="button" id="addcollection" data-toggle="dropdown" aria-expanded="true">
 			        Add to Collection
 			        <span class="caret"></span>
 			    </button>
