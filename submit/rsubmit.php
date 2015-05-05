@@ -12,8 +12,7 @@
 	$uexists = $mysqli->query("SELECT userExists(\"$username\") AS uexists")->fetch_assoc()["uexists"];
 	$eexists = $mysqli->query("SELECT userExists(\"$email\") AS eexists")->fetch_assoc()["eexists"];
 	if ($uexists == 0 && $eexists == 0) {
-		$adduser = "INSERT INTO `User` (`UserID`, `Username`, `Email`, `Password`, `IsAdmin`)
-				VALUES (" . $usercount . ", \"" . $username . "\", \"" . $email . "\", \"" . $password . "\", " . 0 .  ")";
+		$adduser = "SELECT createUser(" . $usercount . ", \"" . $username . "\", \"" . $email . "\", \"" . $password . "\", " . 0 .  ")";
 		$result = $mysqli->query($adduser);
 		if (!$result) {
 			echo "Failed! Please check to see if your entries are valid";
