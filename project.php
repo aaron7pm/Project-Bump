@@ -3,7 +3,7 @@
 	$ProjectID = $_GET["id"];
 	$projectquery = "SELECT * FROM Project WHERE ProjectID = " . $ProjectID . " LIMIT 1";
 	$project = $mysqli->query($projectquery)->fetch_assoc();
-	$votes = $mysqli->query("SELECT COUNT(1) FROM `Vote` WHERE ProjectID = " . $ProjectID)->fetch_assoc()["COUNT(1)"];
+	$votes = $mysqli->query("SELECT calculateVotes($ProjectID) AS vcount")->fetch_assoc()["vcount"];
 	$voted = null;
 	if (isset($_COOKIE["UserID"])){
 		$voted = $mysqli->query("SELECT 1 FROM `Vote` WHERE ProjectID = " . $ProjectID . " AND UserID = " . $_COOKIE["UserID"]);
