@@ -6,6 +6,7 @@ if (Cookies.get('UserID')) {
 	$("#add").removeClass("hidden");
 	$("#username").text(Cookies.get("Username"));
 	$("#profile").attr("href", "user.php?id=" + Cookies.get("UserID"));
+	$("#settings").attr("href", "settings.php?id=" + Cookies.get("UserID"));
 } else {
 	$("#registerbtn").removeClass("hidden");
 	$("#loginbtn").removeClass("hidden");
