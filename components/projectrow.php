@@ -13,7 +13,7 @@
 	?>
 	<div class="row pdetail">
 		<div class="votebox col-xs-2 col-md-1">
-			<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"])) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted !== null && $voted -> num_rows > 0) echo 'class="voted"'; ?>>
+			<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"]) && ) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted !== null && $voted -> num_rows > 0) echo 'class="voted"'; ?>>
 				<i class="fa fa-thumbs-o-up"></i>
 				<span class="votecount"><? echo $votes ?></span>
 			</a>
