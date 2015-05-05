@@ -66,7 +66,19 @@
 							}
 						?>
 			        </div>
-			        <div class="tab-pane" id="collectiontab">Thirdamuno, ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae.</div>
+			        <div class="tab-pane" id="collectiontab">
+			        	<?	$collections = $mysqli->query("SELECT * FROM Collection WHERE Name IS NOT NULL AND UserID = " . $UserID);
+			        		if ($collections -> num_rows > 0) {
+			        			while($collection = $collections->fetch_assoc()){
+									$CollectionID = $collection["CollectionID"];
+									$uid = $collection["UserID"];
+									$user = $mysqli->query("SELECT getUsername(" . $uid . ") AS Username")->fetch_assoc()["Username"];
+									$title = $collection["Name"];
+									include("components/collectionrow.php");
+								}
+							}
+						?>
+			        </div>
 			    </div>
 			</div>
 		</div>
