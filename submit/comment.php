@@ -5,16 +5,6 @@
 	$UserID = $_COOKIE["UserID"];
 	$ProjectID = $_POST["ProjectID"];
 	$Content = $_POST["Content"];
-	$commentcount = $mysqli->query("SELECT COUNT(1) FROM `Comment`")->fetch_assoc()["COUNT(1)"];
-	while ($mysqli->query("SELECT 1 FROM Comment WHERE CommentID = " . $commentcount)->num_rows > 0) {
-		$commentcount += 1;
-	}
-	$qstring = "INSERT INTO `Comment` (`CommentID`, `ProjectID`, `UserID`, `Content`, `Date`)
-							VALUES (" . $commentcount . ", " . $ProjectID . ", " . $UserID . ", \"" . $Content . "\", CURRENT_DATE )";
-	$userquery = $mysqli->query($qstring);
-	if ($userquery === TRUE) {
-		echo "<script>location.reload();;</script>";
-	} else {
-		print_r($mysqli->error_list);
-	}
+	$userquery = $mysqli->query("SELECT createComment(" . $ProjectID . ", " . $UserID . ", \"" . $Content . "\")");
+	echo "<script>location.reload();</script>";
 ?>
