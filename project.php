@@ -54,12 +54,19 @@
 							<span class="votecount"><? echo $votes ?></span>
 						</a>
 					</div>
-					<div class="col-xs-10 col-md-11">
+					<div class="col-xs-8 col-md-9">
 						<h1 class="nomargin nopadding"><? echo $project["Name"] . ' <small>- <a href="' . $project["Website"] . '">' . $project["Website"] . "</a></small>" ?></h1>
 						<h4>by <a href="user.php?id=<? echo $project['UserID'] ?>"><? echo $username ?></a></h4>
 						<br>
 						<h5><? echo $project["Description"] ?></h5>
 					</div>
+					<? 	$liu = null;
+						if (isset($_COOKIE["UserID"])) $liu = $_COOKIE["UserID"];
+						if ($project["UserID"] === $liu) echo  
+						'<div class="col-xs-2">
+							<a onclick="deleteProject('.$ProjectID.')"><h2 class="pull-right" style="margin: 1rem;"><i class="fa fa-trash-o"></i></h2></a>
+						</div>';
+					?>
 				</div>
 			</div>
 		</div>

@@ -26,7 +26,7 @@
 									$voted = $mysqli->query("SELECT didVote(" . $ProjectID . ", " . $_COOKIE["UserID"] . ") AS didVote")->fetch_assoc()["didVote"];
 								} 
 								$description = $row["Description"];
-								include("components/projectrow.php");
+								include("components/collectionprojectrow.php");
 							}
 						}else {
 							echo "<h4 class='text-center'>No projects have been submitted</h4>";

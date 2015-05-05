@@ -34,9 +34,17 @@ function vote(id) {
 	    }});
 	}
 }
+
 function addToCollection(cid, uid, pid){
 	var data = "cid="+cid+"&uid="+uid+"&pid="+pid;
     $.ajax({type:'POST', url: 'submit/addToCollection.php', data:data, success: function(response) {
+        $('body').append(response);
+    }});
+}
+
+function deleteFromCollection(cid, pid){
+	var data = "cid="+cid+"&pid="+pid;
+    $.ajax({type:'POST', url: 'submit/deleteFromCollection.php', data:data, success: function(response) {
         $('body').append(response);
     }});
 }
@@ -45,5 +53,12 @@ function deleteCollection(cid){
 	var data = "cid="+cid;
     $.ajax({type:'POST', url: 'submit/deleteCollection.php', data:data, success: function(response) {
         location.reload();
+    }});
+}
+
+function deleteProject(pid){
+	var data = "pid="+pid;
+    $.ajax({type:'POST', url: 'submit/deleteProject.php', data:data, success: function(response) {
+        $("body").append(response);
     }});
 }

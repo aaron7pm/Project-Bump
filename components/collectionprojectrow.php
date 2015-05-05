@@ -26,7 +26,7 @@
 			if (isset($_COOKIE["UserID"])) $liu = $_COOKIE["UserID"];
 			if ($project["UserID"] === $liu) echo  
 			'<div class="col-xs-2">
-				<a onclick="deleteProject('.$ProjectID.')"><h2 class="pull-right" style="margin: 1rem;"><i class="fa fa-trash-o"></i></h2></a>
+				<a onclick="deleteFromCollection('.$CollectionID . ", " .$ProjectID.')"><h2 class="pull-right" style="margin: 1rem;"><i class="fa fa-trash-o"></i></h2></a>
 			</div>';
 		?>
 	</div>
