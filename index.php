@@ -16,14 +16,13 @@
 				if ($result -> num_rows > 0) {
 					while ($row = $result->fetch_assoc()){
 						$ProjectID = $row["ProjectID"];
-						$UserID = $row["UserID"];
-						$userquery = $mysqli->query("SELECT Username FROM User WHERE UserID = " . $UserID);
-						$user = $userquery->fetch_assoc()["Username"];
+						$uid = $row["UserID"];
+						$user = $mysqli->query("SELECT getUsername(" . $uid . ") AS Username")->fetch_assoc()["Username"];
 						$title = $row["Name"];
 						$votes = $mysqli->query("SELECT calculateVotes($ProjectID) AS vcount")->fetch_assoc()["vcount"];
 						$voted = null;
 						if (isset($_COOKIE["UserID"])){
-							$voted = $mysqli->query("SELECT 1 FROM `Vote` WHERE ProjectID = " . $ProjectID . " AND UserID = " . $_COOKIE["UserID"]);
+							$voted = $mysqli->query("SELECT didVote(" . $ProjectID . ", " . $_COOKIE["UserID"] . ") AS didVote")->fetch_assoc()["didVote"];
 						} 
 						$description = $row["Description"];
 						include("components/projectrow.php");

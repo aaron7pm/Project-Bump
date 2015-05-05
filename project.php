@@ -6,10 +6,9 @@
 	$votes = $mysqli->query("SELECT calculateVotes($ProjectID) AS vcount")->fetch_assoc()["vcount"];
 	$voted = null;
 	if (isset($_COOKIE["UserID"])){
-		$voted = $mysqli->query("SELECT 1 FROM `Vote` WHERE ProjectID = " . $ProjectID . " AND UserID = " . $_COOKIE["UserID"]);
+		$voted = $mysqli->query("SELECT didVote(" . $ProjectID . ", " . $_COOKIE["UserID"] . ") AS didVote")->fetch_assoc()["didVote"];
 	} 
-	$usernamequery = $mysqli->query("SELECT Username FROM User WHERE UserID = " . $_COOKIE['UserID']);
-	$username = $usernamequery->fetch_assoc()["Username"];
+	$username = $mysqli->query("SELECT getUsername(" . $_COOKIE['UserID'] . ") AS Username")->fetch_assoc()["Username"];
 	$title = "Project Bump - " . $project["Name"];
 ?>
 <html>
@@ -28,7 +27,7 @@
 				?>
 				<div class="row pdetail">
 					<div class="votebox col-xs-2 col-md-1">
-						<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"])) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted !== null && $voted -> num_rows > 0) echo 'class="voted"'; ?>>
+						<a id="<? echo 'vote' . $ProjectID ?>" onclick="<? if(isset($_COOKIE["UserID"])) echo 'vote(' . $ProjectID . ')'; ?>" <? if($voted !== null && $voted == 1) echo 'class="voted"'; ?>>
 							<i class="fa fa-thumbs-o-up"></i>
 							<span class="votecount"><? echo $votes ?></span>
 						</a>
