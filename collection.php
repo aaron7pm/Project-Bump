@@ -10,7 +10,7 @@
 	<body>
 		<? include_once("components/nav.php"); ?>
 		<div class="container">
-			<h1 class="text-center"><? echo $collection["Name"] ?><small> by <a href="user.php?=<? echo $collection['UserID'] ?>"><? echo $mysqli->query("SELECT getUsername(" . $collection["UserID"] . ") AS username")->fetch_assoc()["username"] ?></a></small></h1>
+			<h1 class="text-center"><? echo $collection["Name"] ?><small> by <a href="user.php?id=<? echo $collection['UserID'] ?>"><? echo $mysqli->query("SELECT getUsername(" . $collection["UserID"] . ") AS username")->fetch_assoc()["username"] ?></a></small></h1>
 			<?	if ($projects -> num_rows > 0) {
         			while($project = $projects->fetch_assoc()){
 						$result = $mysqli->query("SELECT * FROM Project WHERE ProjectID = " . $project["ProjectID"]);
