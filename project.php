@@ -16,6 +16,24 @@
 	<body>
 		<? include_once("components/nav.php"); ?>
 		<div class="container project">
+			<div class="dropdown">
+			    <button class="btn btn-default dropdown-toggle" type="button" id="addcollection" data-toggle="dropdown" aria-expanded="true">
+			        Add to Collection
+			        <span class="caret"></span>
+			    </button>
+			    <ul class="dropdown-menu" role="menu" aria-labelledby="addcollection">
+			    	<?	$collections = $mysqli->query("SELECT DISTINCT CollectionID, Name FROM Collection WHERE UserID = " . $_COOKIE["UserID"]);
+			    		if ($collections -> num_rows > 0) {
+			    			while ($collection = $collections -> fetch_assoc()) {
+			    				echo '<li role="presentation"><a role="menuitem" tabindex="-1"
+			    						onclick="addToCollection(' . $collection["CollectionID"] . ", " . $_COOKIE["UserID"] . ", " . $ProjectID . ")\">"
+			    						 . $collection["Name"] . "</a></li>";
+			    			}
+			    		}
+				    ?>
+				    <li><a href="newcollection.php">New Collection</a></li>
+			    </ul>
+			</div>
 			<div class="rowwrapper">
 				<? 	if ($project['Image'] !== NULL) {
 					echo

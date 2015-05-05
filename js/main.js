@@ -34,3 +34,9 @@ function vote(id) {
 	    }});
 	}
 }
+function addToCollection(cid, uid, pid){
+	var data = "cid="+cid+"&uid="+uid+"&pid="+pid;
+    $.ajax({type:'POST', url: 'submit/addToCollection.php', data:data, success: function(response) {
+        $('body').append(response);
+    }});
+}

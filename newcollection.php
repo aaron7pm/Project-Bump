@@ -8,7 +8,7 @@
 	<body>
 		<? include_once("components/nav.php"); ?>
 		<div class="container">
-			<h1 class="text-center">New Project</h1>
+			<h1 class="text-center">New Collection</h1>
 			<br>
 			<form id="collection" class="form-horizontal">
 				<h3 class="form_result text-center danger"></h3>
