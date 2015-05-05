@@ -25,6 +25,7 @@
 			    	<?	$collections = $mysqli->query("SELECT DISTINCT CollectionID, Name FROM Collection WHERE UserID = " . $_COOKIE["UserID"]);
 			    		if ($collections -> num_rows > 0) {
 			    			while ($collection = $collections -> fetch_assoc()) {
+			    				if ($collection["Name"] !== NULL)
 			    				echo '<li role="presentation"><a role="menuitem" tabindex="-1"
 			    						onclick="addToCollection(' . $collection["CollectionID"] . ", " . $_COOKIE["UserID"] . ", " . $ProjectID . ")\">"
 			    						 . $collection["Name"] . "</a></li>";
