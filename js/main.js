@@ -40,3 +40,10 @@ function addToCollection(cid, uid, pid){
         $('body').append(response);
     }});
 }
+
+function deleteCollection(cid){
+	var data = "cid="+cid;
+    $.ajax({type:'POST', url: 'submit/deleteCollection.php', data:data, success: function(response) {
+        location.reload();
+    }});
+}
