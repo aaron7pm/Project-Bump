@@ -21,7 +21,7 @@
 						$title = $row["Name"];
 						$votes = $mysqli->query("SELECT calculateVotes($ProjectID) AS vcount")->fetch_assoc()["vcount"];
 						$voted = null;
-						if (isset($_COOKIE["UserID"])){
+						if (isset($_COOKIE["UserID"]) && $_COOKIE["UserID"] !== ""){
 							$voted = $mysqli->query("SELECT didVote(" . $ProjectID . ", " . $_COOKIE["UserID"] . ") AS didVote")->fetch_assoc()["didVote"];
 						} 
 						$description = $row["Description"];

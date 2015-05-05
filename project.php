@@ -5,10 +5,10 @@
 	$project = $mysqli->query($projectquery)->fetch_assoc();
 	$votes = $mysqli->query("SELECT calculateVotes($ProjectID) AS vcount")->fetch_assoc()["vcount"];
 	$voted = null;
-	if (isset($_COOKIE["UserID"])){
+	if (isset($_COOKIE["UserID"]) && $_COOKIE["UserID"] !== ""){
 		$voted = $mysqli->query("SELECT didVote(" . $ProjectID . ", " . $_COOKIE["UserID"] . ") AS didVote")->fetch_assoc()["didVote"];
 	} 
-	$username = $mysqli->query("SELECT getUsername(" . $_COOKIE['UserID'] . ") AS Username")->fetch_assoc()["Username"];
+	$username = $mysqli->query("SELECT getUsername(" . $project["UserID"] . ") AS Username")->fetch_assoc()["Username"];
 	$title = "Project Bump - " . $project["Name"];
 ?>
 <html>
