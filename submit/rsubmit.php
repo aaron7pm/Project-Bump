@@ -9,8 +9,9 @@
 	while ($mysqli->query("SELECT 1 FROM User WHERE UserID = " . $usercount)->num_rows > 0) {
 		$usercount += 1;
 	}
-	$exists = $mysqli->query("SELECT 1 FROM User WHERE UPPER(Username) = \"" . strtoupper($username) . "\" OR UPPER(Email) = \"" . strtoupper($email) . "\"");
-	if ($exists -> num_rows <= 0) {
+	$uexists = $mysqli->query("SELECT userExists(\"$username\") AS uexists")->fetch_assoc()["uexists"];
+	$eexists = $mysqli->query("SELECT userExists(\"$email\") AS eexists")->fetch_assoc()["eexists"];
+	if ($uexists == 0 && $eexists == 0) {
 		$adduser = "INSERT INTO `User` (`UserID`, `Username`, `Email`, `Password`, `IsAdmin`)
 				VALUES (" . $usercount . ", \"" . $username . "\", \"" . $email . "\", \"" . $password . "\", " . 0 .  ")";
 		$result = $mysqli->query($adduser);
