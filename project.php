@@ -31,7 +31,7 @@
 			    			}
 			    		}
 				    ?>
-				    <li><a href="newcollection.php">New Collection</a></li>
+				    <li><a href="newcollection.php?id=<? echo $ProjectID ?>">New Collection</a></li>
 			    </ul>
 			</div>
 			<div class="rowwrapper">

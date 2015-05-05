@@ -21,7 +21,7 @@
 				<div class="form-group">
 					<label for="inputProject" class="col-sm-2 control-label">ProjectID</label>
 					<div class="col-sm-8">
-						<input type="text" class="form-control" id="inputProject" name="inputProject" placeholder="Enter a Project ID">
+						<input type="text" class="form-control" id="inputProject" name="inputProject" placeholder="Enter a Project ID" <? if(isset($_GET["id"])) echo 'value="' . $_GET["id"] . '"' ?>>
 					</div>
 				</div>
 				<div class="form-group">
