@@ -6,12 +6,8 @@
 	$website = $_POST["inputWebsite"];
 	$description = $_POST["inputDescription"];
 	$image = $_POST["inputImage"];
-	$projectcount = $mysqli->query("SELECT COUNT(1) FROM `Project`")->fetch_assoc()["COUNT(1)"];
-	while ($mysqli->query("SELECT 1 FROM Project WHERE ProjectID = " . $projectcount)->num_rows > 0) {
-		$projectcount += 1;
-	}
-	$qstring = "INSERT INTO `Project` (`ProjectID`, `UserID`, `Name`, `Description`, `Image`, `Website`, `Date`)
-								VALUES (" . $projectcount . ", " . $_COOKIE["UserID"] . ", \"" . $name . "\", \"" . $description . "\", \"" . $image . "\", \"" . $website . "\", CURRENT_DATE)";
+	$UserID = $_COOKIE['UserID'];
+	$qstring = "SELECT createProject($UserID, \"$name\", \"$description\", \"$image\", \"$website\")";
 	$userquery = $mysqli->query($qstring);
 	if ($userquery === TRUE) {
 		echo "<script>window.location = './index.php';</script>";
