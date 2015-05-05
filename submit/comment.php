@@ -5,6 +5,6 @@
 	$UserID = $_COOKIE["UserID"];
 	$ProjectID = $_POST["ProjectID"];
 	$Content = $_POST["Content"];
-	$userquery = $mysqli->query("SELECT createComment(" . $ProjectID . ", " . $UserID . ", \"" . $Content . "\")");
+	$userquery = $mysqli->query("CALL createComment(" . $ProjectID . ", " . $UserID . ", \"" . $Content . "\")");
 	echo "<script>location.reload();</script>";
 ?>

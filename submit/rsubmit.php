@@ -8,12 +8,12 @@
 	$uexists = $mysqli->query("SELECT userExists(\"$username\") AS uexists")->fetch_assoc()["uexists"];
 	$eexists = $mysqli->query("SELECT userExists(\"$email\") AS eexists")->fetch_assoc()["eexists"];
 	if ($uexists == 0 && $eexists == 0) {
-		$adduser = "SELECT createUser(\"" . $username . "\", \"" . $email . "\", \"" . $password . "\")";
+		$adduser = "SELECT createUser(\"" . $username . "\", \"" . $email . "\", \"" . $password . "\") AS uid";
 		$result = $mysqli->query($adduser);
 		if (!$result) {
 			echo "Failed! Please check to see if your entries are valid";
 		} else {
-			echo "<script>Cookies.set('Username', '" . $username . "'); Cookies.set('UserID', '" . $usercount . "'); window.location = './index.php';</script>";
+			echo "<script>Cookies.set('Username', '" . $username . "'); Cookies.set('UserID', '" . $result->fetch_assoc()["uid"] . "'); window.location = './index.php';</script>";
 		}
 	} else {
 		echo "User already exists";
