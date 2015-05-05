@@ -34,7 +34,7 @@
 					</div>
 					<div class="col-xs-10 col-md-11">
 						<h1 class="nomargin nopadding"><? echo $project["Name"] . ' <small>- <a href="' . $project["Website"] . '">' . $project["Website"] . "</a></small>" ?></h1>
-						<h4>by <? echo $username ?></h4>
+						<h4>by <a href="user.php?id=<? echo $project['UserID'] ?>"><? echo $username ?></a></h4>
 						<br>
 						<h5><? echo $project["Description"] ?></h5>
 					</div>
